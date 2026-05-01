@@ -18,7 +18,7 @@ export default function Home() {
   const [showVideo, setShowVideo] = useState(false);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/products')
+    axios.get('https://ironforge-gym-shop.onrender.com/api/products')
       .then(res => setFeatured(res.data.slice(0, 8)))
       .catch(() => {});
   }, []);

@@ -17,7 +17,7 @@ export default function Support() {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post('http://localhost:5000/api/messages', formData);
+      await axios.post('https://ironforge-gym-shop.onrender.com/api/messages', formData);
       setSubmitted(true);
       setFormData({ name: '', email: '', reason: 'order', message: '' });
     } catch (err) {

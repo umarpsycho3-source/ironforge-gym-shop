@@ -23,22 +23,22 @@ export default function Admin() {
     const fetchData = async () => {
       try {
         // Fetch products first (public, doesn't need admin token)
-        const prodRes = await axios.get('http://localhost:5000/api/products');
+        const prodRes = await axios.get('https://ironforge-gym-shop.onrender.com/api/products');
         setProducts(prodRes.data);
 
         // Try fetching protected data individually to avoid complete crash if one fails
         try {
-          const statsRes = await axios.get('http://localhost:5000/api/stats', { headers: { Authorization: `Bearer ${token}` } });
+          const statsRes = await axios.get('https://ironforge-gym-shop.onrender.com/api/stats', { headers: { Authorization: `Bearer ${token}` } });
           setStats(statsRes.data);
         } catch (e) { console.warn('Stats fetch failed'); }
 
         try {
-          const orderRes = await axios.get('http://localhost:5000/api/orders', { headers: { Authorization: `Bearer ${token}` } });
+          const orderRes = await axios.get('https://ironforge-gym-shop.onrender.com/api/orders', { headers: { Authorization: `Bearer ${token}` } });
           setOrders(orderRes.data.reverse());
         } catch (e) { console.warn('Orders fetch failed'); }
 
         try {
-          const msgRes = await axios.get('http://localhost:5000/api/messages', { headers: { Authorization: `Bearer ${token}` } });
+          const msgRes = await axios.get('https://ironforge-gym-shop.onrender.com/api/messages', { headers: { Authorization: `Bearer ${token}` } });
           setMessages(msgRes.data);
         } catch (e) { console.warn('Messages fetch failed'); }
 
@@ -56,11 +56,11 @@ export default function Admin() {
     e.preventDefault();
     try {
       if (isEditing) {
-        await axios.put(`http://localhost:5000/api/products/${currentProduct.id}`, currentProduct, { headers: { Authorization: `Bearer ${token}` } });
+        await axios.put(`https://ironforge-gym-shop.onrender.com/api/products/${currentProduct.id}`, currentProduct, { headers: { Authorization: `Bearer ${token}` } });
       } else {
-        await axios.post('http://localhost:5000/api/products', currentProduct, { headers: { Authorization: `Bearer ${token}` } });
+        await axios.post('https://ironforge-gym-shop.onrender.com/api/products', currentProduct, { headers: { Authorization: `Bearer ${token}` } });
       }
-      const res = await axios.get('http://localhost:5000/api/products');
+      const res = await axios.get('https://ironforge-gym-shop.onrender.com/api/products');
       setProducts(res.data);
       setIsEditing(false);
       setCurrentProduct({ name: '', price: '', category: 'equipment', image: '', description: '', stock: 0 });
@@ -70,14 +70,14 @@ export default function Admin() {
   const handleDeleteProduct = async (id) => {
     if (!window.confirm('Are you sure?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`, { headers: { Authorization: `Bearer ${token}` } });
+      await axios.delete(`https://ironforge-gym-shop.onrender.com/api/products/${id}`, { headers: { Authorization: `Bearer ${token}` } });
       setProducts(products.filter(p => p.id !== id));
     } catch (err) { console.error(err); }
   };
 
   const handleUpdateOrderStatus = async (id, status) => {
     try {
-      await axios.put(`http://localhost:5000/api/orders/${id}/status`, { status }, { headers: { Authorization: `Bearer ${token}` } });
+      await axios.put(`https://ironforge-gym-shop.onrender.com/api/orders/${id}/status`, { status }, { headers: { Authorization: `Bearer ${token}` } });
       setOrders(orders.map(o => o.id === id ? { ...o, status } : o));
     } catch (err) { console.error(err); }
   };
@@ -85,7 +85,7 @@ export default function Admin() {
   const handleOrderDelete = async (id) => {
     if (!window.confirm('Permanently delete this order record?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/orders/${id}`, { headers: { Authorization: `Bearer ${token}` } });
+      await axios.delete(`https://ironforge-gym-shop.onrender.com/api/orders/${id}`, { headers: { Authorization: `Bearer ${token}` } });
       setOrders(orders.filter(o => o.id !== id));
     } catch (err) { console.error(err); }
   };

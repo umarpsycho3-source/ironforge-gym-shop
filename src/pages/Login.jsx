@@ -20,7 +20,7 @@ export default function Login() {
     setError('');
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/login', form);
+      const res = await axios.post('https://ironforge-gym-shop.onrender.com/api/login', form);
       login(res.data.user, res.data.token);
       navigate('/' + redirect);
     } catch (err) {

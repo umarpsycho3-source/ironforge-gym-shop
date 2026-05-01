@@ -20,7 +20,7 @@ export default function Orders() {
   const [expanded, setExpanded] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/orders', { headers: { Authorization: `Bearer ${token}` } })
+    axios.get('https://ironforge-gym-shop.onrender.com/api/orders', { headers: { Authorization: `Bearer ${token}` } })
       .then(res => { setOrders(res.data.reverse()); setLoading(false); })
       .catch(() => setLoading(false));
   }, [token]);
@@ -28,7 +28,7 @@ export default function Orders() {
   const handleCancelOrder = async (id) => {
     if (!window.confirm('Are you sure you want to cancel this order?')) return;
     try {
-      await axios.put(`http://localhost:5000/api/orders/${id}/cancel`, {}, { headers: { Authorization: `Bearer ${token}` } });
+      await axios.put(`https://ironforge-gym-shop.onrender.com/api/orders/${id}/cancel`, {}, { headers: { Authorization: `Bearer ${token}` } });
       setOrders(orders.map(o => o.id === id ? { ...o, status: 'cancelled' } : o));
     } catch (err) {
       alert(err.response?.data?.error || 'Failed to cancel order');

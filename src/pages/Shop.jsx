@@ -22,7 +22,7 @@ export default function Shop() {
   const catParam = searchParams.get('cat') || 'all';
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/products')
+    axios.get('https://ironforge-gym-shop.onrender.com/api/products')
       .then(res => { setProducts(res.data); setLoading(false); })
       .catch(() => setLoading(false));
   }, []);

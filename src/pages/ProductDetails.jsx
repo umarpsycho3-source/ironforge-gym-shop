@@ -14,7 +14,7 @@ export default function ProductDetails() {
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/products')
+    axios.get('https://ironforge-gym-shop.onrender.com/api/products')
       .then(res => {
         const p = res.data.find(item => item.id == id);
         setProduct(p);
@@ -27,7 +27,7 @@ export default function ProductDetails() {
     if (!user) return alert('Please login to leave a review');
     setSubmitting(true);
     try {
-      const res = await axios.post(`http://localhost:5000/api/products/${id}/reviews`, {
+      const res = await axios.post(`https://ironforge-gym-shop.onrender.com/api/products/${id}/reviews`, {
         user: user.name,
         ...newReview
       });

@@ -27,7 +27,7 @@ export default function Checkout() {
   const handlePlaceOrder = async () => {
     setLoading(true); setError('');
     try {
-      const res = await axios.post('http://localhost:5000/api/orders',
+      const res = await axios.post('https://ironforge-gym-shop.onrender.com/api/orders',
         { items, total: grandTotal.toFixed(2), paymentMethod },
         { headers: { Authorization: `Bearer ${token}` } }
       );

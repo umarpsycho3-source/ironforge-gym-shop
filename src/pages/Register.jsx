@@ -20,7 +20,7 @@ export default function Register() {
     if (form.password.length < 6) { setError('Password must be at least 6 characters'); return; }
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/register', {
+      const res = await axios.post('https://ironforge-gym-shop.onrender.com/api/register', {
         name: form.name, email: form.email, password: form.password
       });
       login(res.data.user, res.data.token);
