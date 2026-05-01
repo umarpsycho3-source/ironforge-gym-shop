@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1777637293339,
+    "userId": 1777637220964,
+    "userName": "R7",
+    "userEmail": "onetaphero0@gmail.com",
+    "items": [
+      {
+        "id": 3,
+        "name": "Adjustable Bench",
+        "price": 199.99,
+        "category": "equipment",
+        "image": "https://images.unsplash.com/photo-1594381898411-846e7d193883?w=800&q=80",
+        "description": "Flat-Incline-Decline adjustable bench with thick padding.",
+        "stock": 12,
+        "rating": 4.7,
+        "reviews": [],
+        "qty": 1
+      },
+      {
+        "id": 2,
+        "name": "Dumbbell Set (5-50lbs)",
+        "price": 849.99,
+        "category": "equipment",
+        "image": "https://images.unsplash.com/photo-1586401100295-7a8096fd231a?w=800&q=80",
+        "description": "Complete set of rubber-coated hex dumbbells with rack.",
+        "stock": 5,
+        "rating": 4.9,
+        "reviews": [],
+        "qty": 1
+      }
+    ],
+    "total": "1049.98",
+    "status": "pending",
+    "createdAt": "2026-05-01T12:08:13.339Z"
+  }
+]

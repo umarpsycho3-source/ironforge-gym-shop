@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1777627575559,
+    "name": "Umar",
+    "email": "Umarxgamer04@gmail.com",
+    "password": "$2b$10$XnbAyph6o2jRHqQ12iQMl.Q3GFQxls75qYgGwB00cVV/hs3oQ7.zO",
+    "role": "admin"
+  },
+  {
+    "id": 1777633044653,
+    "name": "Ayaan",
+    "email": "umarpsycho3@gmail.com",
+    "password": "$2b$10$tFPrwVQ/A..E4Z6AP3rvRuUMw25qgkr6hEdAiyfWuVOL7DnivK5mi",
+    "role": "user"
+  },
+  {
+    "id": 1777637220964,
+    "name": "R7",
+    "email": "onetaphero0@gmail.com",
+    "password": "$2b$10$iCFn78xG1O/rd91Y6lnkuOnyvisiHrxC2jCxwCFmmMgschthwkHSC",
+    "role": "user"
+  }
+]
